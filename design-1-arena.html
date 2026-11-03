@@ -48,15 +48,21 @@ img{display:block;max-width:100%}
 .burger span{width:22px;height:2px;background:var(--ink)}
 
 /* HERO */
-.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;padding:0 0 60px}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:128px 0 72px}
 .hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:.52;animation:kb 24s ease-in-out infinite alternate}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:.34;animation:kb 24s ease-in-out infinite alternate}
 .hero-bg:after{content:"";position:absolute;inset:0;background:
    linear-gradient(180deg,rgba(11,12,14,.72) 0%,rgba(11,12,14,.35) 40%,rgba(11,12,14,.92) 100%),
    radial-gradient(120% 90% at 80% 10%,rgba(199,242,63,.10),transparent 55%)}
 @keyframes kb{from{transform:scale(1.04)}to{transform:scale(1.14)}}
 .hero .wrap{position:relative;z-index:2;width:100%}
-.hero h1{font-size:clamp(46px,8vw,104px);font-weight:700;letter-spacing:-.03em;max-width:15ch}
+.hero-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:50px;align-items:center}
+.hero-portrait{position:relative;width:100%;max-width:410px;aspect-ratio:4/5;justify-self:end;overflow:hidden;
+  border:1px solid rgba(255,255,255,.18);box-shadow:0 40px 80px -30px rgba(0,0,0,.75)}
+.hero-portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;filter:grayscale(.12) contrast(1.05)}
+.hero-portrait:after{content:"";position:absolute;left:0;bottom:0;width:46px;height:46px;border-left:3px solid var(--volt);border-bottom:3px solid var(--volt)}
+.hero-portrait .vtag{position:absolute;left:16px;bottom:14px;z-index:2;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13px;letter-spacing:.04em;text-shadow:0 2px 10px rgba(0,0,0,.85)}
+.hero h1{font-size:clamp(44px,6.4vw,88px);font-weight:700;letter-spacing:-.03em;max-width:14ch}
 .hero h1 .volt{color:var(--volt)}
 .hero .pull{color:var(--ink2);font-size:clamp(17px,2vw,20px);max-width:46ch;margin:26px 0 0}
 .hero .cta{display:flex;gap:14px;flex-wrap:wrap;margin:34px 0 0}
@@ -167,8 +173,9 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;background:var(--bg)
   .menu a{padding:14px 0;border-bottom:1px solid var(--line)}
   .menu .apply{margin-top:12px;text-align:center}
   .navtoggle:checked ~ .menu{display:flex}
-  .hero-top{top:92px}
-  .routes,.work,.victor,.method .inner,.steps,.qa-grid,.facts,.fcols{grid-template-columns:1fr}
+  .hero{padding:102px 0 56px}
+  .hero-grid,.routes,.work,.victor,.method .inner,.steps,.qa-grid,.facts,.fcols{grid-template-columns:1fr}
+  .hero-grid{gap:28px}.hero-portrait{order:-1;max-width:300px}
   .work,.victor{gap:30px}.method .mtxt{padding:70px 0}.method .mph{min-height:260px;order:-1}
   .vphoto{max-width:360px}
   section{padding:74px 0}
@@ -194,13 +201,19 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;background:var(--bg)
 <!-- HERO -->
 <header class="hero">
   <div class="hero-bg"><img src="https://images.pexels.com/photos/4761785/pexels-photo-4761785.jpeg?auto=compress&cs=tinysrgb&w=1900" alt="A boxer leaning on the ropes of a ring in a dimly lit gym, light cutting through the haze"></div>
-  <div class="hero-top"><div class="wrap"><p class="eyebrow">Work With Victor Pierantoni</p></div></div>
-  <div class="wrap">
-    <h1>1:1 performance coaching for founders and <span class="volt">athletes</span></h1>
-    <p class="pull">Bring a decision you keep revisiting, a conversation you are putting off or a moment of pressure you want to handle differently.</p>
-    <div class="cta">
-      <a href="#" class="btn">Apply for 1:1 coaching</a>
-      <a href="#" class="btn-o">See what a session involves</a>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Work With Victor Pierantoni</p>
+      <h1>1:1 performance coaching for founders and <span class="volt">athletes</span></h1>
+      <p class="pull">Bring a decision you keep revisiting, a conversation you are putting off or a moment of pressure you want to handle differently.</p>
+      <div class="cta">
+        <a href="#" class="btn">Apply for 1:1 coaching</a>
+        <a href="#" class="btn-o">See what a session involves</a>
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <img src="assets/victor-portrait.jpg" alt="Victor Pierantoni, performance coach, arms crossed in a grey knit polo against a dark wall">
+      <span class="vtag">Victor Pierantoni</span>
     </div>
   </div>
 </header>
