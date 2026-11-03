@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1:1 Performance Coaching | Liberation Coach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ 2 · FEATURE — full-width editorial, alternating panels ============ */
+:root{
+  --paper:#faf8f4; --paper2:#f0ece2; --dark:#17140f; --dark2:#201c16;
+  --ink:#17140f; --ink2:#514c42; --ink3:#8f897c; --rust:#c15a2b; --rust2:#a84a20;
+  --cream:#f4efe5; --line:rgba(23,20,15,.14); --dline:rgba(244,239,229,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);line-height:1.62;
+  font-family:"Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.disp{font-family:"Fraunces",Georgia,serif;margin:0;font-weight:500;line-height:1.02;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px)}
+.eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--rust);font-weight:600;margin:0 0 20px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--paper);padding:15px 30px;font-size:14px;letter-spacing:.04em;
+  font-weight:500;border:1px solid var(--ink);transition:.2s}
+.btn:hover{background:var(--rust);border-color:var(--rust)}
+.btn-o{display:inline-flex;align-items:center;gap:9px;background:transparent;color:var(--ink);padding:14px 28px;font-size:14px;letter-spacing:.04em;
+  border:1px solid var(--line);transition:.2s}
+.btn-o:hover{border-color:var(--rust);color:var(--rust)}
+.flink{display:inline-flex;align-items:center;gap:9px;color:var(--rust);font-weight:600;font-size:14.5px;
+  border-bottom:1px solid rgba(193,90,43,.32);padding-bottom:3px;transition:.2s}
+.flink:after{content:"→"}.flink:hover{border-color:var(--rust)}
+
+/* nav (static masthead over hero) */
+.nav{position:absolute;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;
+  padding:24px clamp(24px,5vw,64px);color:var(--cream)}
+.brand{font-family:"Fraunces",serif;font-size:25px;font-weight:600;letter-spacing:.01em}
+.menu{display:flex;gap:28px;align-items:center;font-size:14px;color:rgba(244,239,229,.86)}
+.menu a:hover{color:#fff}
+.menu .apply{color:var(--ink);background:var(--cream);padding:9px 18px;font-weight:600;font-size:13px}
+.menu .apply:hover{background:var(--rust);color:#fff}
+.navtoggle{display:none}.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.burger span{width:22px;height:2px;background:var(--cream)}
+
+/* HERO cover */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;color:var(--cream)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-bg:after{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(23,20,15,.9) 20%,rgba(23,20,15,.55) 60%,rgba(23,20,15,.7)),radial-gradient(120% 90% at 85% 50%,rgba(193,90,43,.14),transparent 55%)}
+.cover{position:relative;z-index:2;display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center;width:100%;padding:90px 0 60px}
+.cover .eyebrow{color:#e7a884}
+.cover h1{font-size:clamp(50px,7vw,104px);color:var(--cream);line-height:.98;max-width:15ch}
+.cover h1 .it{font-style:italic;color:#e7a884}
+.cover .pull{font-family:"Fraunces",serif;font-style:italic;font-size:clamp(18px,2vw,23px);color:#e4ded2;margin:28px 0 0;max-width:40ch}
+.cover .cta{display:flex;gap:14px;flex-wrap:wrap;margin:36px 0 0}
+.cover .cta .btn{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.cover .cta .btn:hover{background:var(--rust);color:#fff;border-color:var(--rust)}
+.cover .cta .btn-o{color:var(--cream);border-color:rgba(244,239,229,.4)}
+.cover .cta .btn-o:hover{border-color:#e7a884;color:#e7a884}
+.medallion{justify-self:center;text-align:center}
+.medallion .ring{width:clamp(210px,23vw,300px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:3px solid rgba(244,239,229,.9);
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.6);margin:0 auto}
+.medallion .ring img{width:100%;height:100%;object-fit:cover;object-position:50% 16%}
+.medallion .nm{font-family:"Fraunces",serif;font-size:21px;margin-top:18px;color:var(--cream)}
+.medallion .rl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#c3bcae;margin-top:3px}
+
+/* facts strip full-width */
+.facts{display:grid;grid-template-columns:repeat(3,1fr);background:var(--dark);color:var(--cream)}
+.facts div{padding:30px clamp(24px,4vw,56px);border-right:1px solid var(--dline)}
+.facts div:last-child{border-right:0}
+.facts b{font-family:"Fraunces",serif;font-size:20px;color:#e7a884;display:block;margin-bottom:6px}
+.facts p{margin:0;color:#cfc8ba;font-size:14.5px}
+
+/* section headers (contained) */
+.shead{max-width:60ch;margin:0 auto 10px;text-align:center;padding:84px 0 0}
+.shead .eyebrow{display:block}
+.shead h2{font-size:clamp(32px,4.4vw,52px)}
+.shead p{color:var(--ink2);font-size:17px;margin:18px auto 0}
+
+/* FULL-BLEED alternating feature rows */
+.feat{display:grid;grid-template-columns:1fr 1fr;min-height:62vh}
+.feat .img{position:relative;overflow:hidden;min-height:340px}
+.feat .img img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.feat:hover .img img{transform:scale(1.04)}
+.feat .txt{display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,6vw,104px)}
+.feat.flip .img{order:2}
+.feat .no{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);font-weight:600;margin-bottom:12px}
+.feat h3{font-size:clamp(28px,3.4vw,40px);margin:0 0 18px}
+.feat p{color:var(--ink2);font-size:17px;margin:0 0 24px;max-width:46ch}
+.feat.band2 .txt{background:var(--paper2)}
+
+/* work quote full-width dark */
+.work{background:var(--dark);color:var(--cream);text-align:center;padding:clamp(70px,9vw,120px) 0}
+.work .eyebrow{color:#e7a884}
+.work .q{font-family:"Fraunces",serif;font-size:clamp(30px,4.4vw,58px);line-height:1.08;max-width:20ch;margin:0 auto}
+.work .q .it{font-style:italic;color:#e7a884}
+.work .cols{display:grid;grid-template-columns:1fr 1fr;gap:44px;max-width:860px;margin:38px auto 0;text-align:left}
+.work .cols p{color:#cfc8ba;font-size:16px;margin:0}
+
+/* bio band (text-led; portrait is the cover medallion) */
+.bio{padding:clamp(70px,8vw,104px) 0;text-align:center}
+.bio h2{font-size:clamp(28px,3.6vw,46px);max-width:24ch;margin:0 auto}
+.bio p{color:var(--ink2);font-size:17.5px;max-width:62ch;margin:20px auto 0}
+.pods{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:24px}
+.pods a{border:1px solid var(--line);padding:11px 17px;font-size:13px;color:var(--ink2);transition:.2s;display:inline-flex;gap:8px;align-items:center}
+.pods a:before{content:"♪";color:var(--rust)}
+.pods a:hover{border-color:var(--rust);color:var(--rust)}
+
+/* steps full-width band */
+.steps-band{background:var(--paper2);padding:clamp(60px,7vw,96px) 0}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;max-width:1100px;margin:34px auto 0}
+.step{border-top:2px solid var(--rust);padding:24px 20px 0 0}
+.step .sn{font-family:"Fraunces",serif;font-size:44px;color:var(--rust);line-height:1}
+.step h3{font-size:21px;margin:14px 0 10px}
+.step p{color:var(--ink2);font-size:15.5px;margin:0}
+
+/* qa */
+.qa-band{padding:clamp(60px,7vw,96px) 0}
+.qa{display:grid;grid-template-columns:1fr 1fr;gap:30px 48px;max-width:1040px;margin:30px auto 0}
+.qa dt{font-family:"Fraunces",serif;font-size:23px;margin-bottom:8px}
+.qa dd{margin:0;color:var(--ink2);font-size:16px}.qa dd a{color:var(--rust)}
+
+/* final full-bleed */
+.final{background:var(--rust);color:#fff;text-align:center;padding:clamp(76px,10vw,130px) 0}
+.final h2{font-size:clamp(34px,5.4vw,70px);max-width:18ch;margin:0 auto;color:#fff}
+.final h2 .it{font-style:italic}
+.final p{color:#f6e4da;font-size:17px;max-width:54ch;margin:24px auto 32px}
+.final .btn{background:#fff;color:var(--rust);border-color:#fff}
+.final .btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.final .note{color:#f1d4c6;font-size:13.5px;margin-top:22px;font-style:italic;font-family:"Fraunces",serif}
+
+/* footer */
+footer{background:var(--dark);color:var(--cream);padding:60px 0 40px}
+.fcols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
+.fbrand{font-family:"Fraunces",serif;font-size:24px;font-weight:600}
+.fdesc{color:#b7b0a2;font-size:14px;max-width:36ch;margin-top:12px}
+.fcol h4{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#8f897c;margin:0 0 15px}
+.fcol a{display:block;color:#cfc8ba;font-size:14px;margin-bottom:10px}.fcol a:hover{color:#e7a884}
+.fine{margin-top:44px;padding-top:22px;border-top:1px solid var(--dline);font-size:12.5px;color:#8f897c;max-width:82ch}
+
+@media(max-width:860px){
+  .burger{display:flex}
+  .menu{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;
+    background:var(--dark);padding:8px 22px 18px}
+  .menu a{padding:14px 0;border-bottom:1px solid var(--dline)}.menu .apply{margin-top:12px;text-align:center}
+  .navtoggle:checked ~ .menu{display:flex}
+  .cover{grid-template-columns:1fr;gap:30px;padding:120px 0 50px}
+  .medallion{order:-1;justify-self:start}.medallion .ring{margin:0}
+  .facts,.feat,.work .cols,.steps,.qa{grid-template-columns:1fr}
+  .feat .txt{padding:44px 22px}.feat.flip .img{order:0}
+  .facts div{border-right:0;border-bottom:1px solid var(--dline)}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <nav class="nav">
+    <a class="brand" href="#">Liberation Coach</a>
+    <input type="checkbox" id="navf" class="navtoggle">
+    <label for="navf" class="burger"><span></span><span></span><span></span></label>
+    <div class="menu">
+      <a href="#">Coaching</a><a href="#">Method</a><a href="#">For Founders</a>
+      <a href="#">For Athletes</a><a href="#">About</a><a href="#" class="apply">Apply</a>
+    </div>
+  </nav>
+  <div class="hero-bg"><img src="https://images.pexels.com/photos/29579843/pexels-photo-29579843.jpeg?auto=compress&cs=tinysrgb&w=1900" alt="A quiet path leading into a misty pine forest in soft early-morning light"></div>
+  <div class="wrap">
+    <div class="cover">
+      <div>
+        <p class="eyebrow">Work With Victor Pierantoni</p>
+        <h1>1:1 performance coaching for founders and <span class="it">athletes</span></h1>
+        <p class="pull">Bring a decision you keep revisiting, a conversation you are putting off or a moment of pressure you want to handle differently.</p>
+        <div class="cta">
+          <a href="#" class="btn">Apply for 1:1 coaching</a>
+          <a href="#" class="btn-o">See what a session involves</a>
+        </div>
+      </div>
+      <div class="medallion">
+        <div class="ring"><img src="assets/victor-portrait.jpg" alt="Victor Pierantoni, performance coach, arms crossed in a grey knit polo against a dark wall"></div>
+        <div class="nm">Victor Pierantoni</div>
+        <div class="rl">Liberation Coach</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- FACTS -->
+<div class="facts">
+  <div><b>Online</b><p>Sessions take place with Victor over Zoom.</p></div>
+  <div><b>Circle</b><p>Access included for all coaching members.</p></div>
+  <div><b>No obligation</b><p>A discovery call, not a commitment.</p></div>
+</div>
+
+<!-- ROUTES INTRO -->
+<div class="wrap">
+  <div class="shead">
+    <p class="eyebrow">Find Your Starting Point</p>
+    <h2>Two routes into the same work</h2>
+    <p>Performance coaching at Liberation Coach is individual work with Victor Pierantoni on how you respond to a challenge and what you choose to do next. Founders, business owners and athletes aged 18 and older can bring a specific situation, examine the assumptions around it and consider a practical next step.</p>
+  </div>
+</div>
+
+<!-- FEATURE: founders (image left) -->
+<section class="feat" style="margin-top:46px">
+  <div class="img"><img src="https://images.pexels.com/photos/8572166/pexels-photo-8572166.jpeg?auto=compress&cs=tinysrgb&w=1500" alt="A founder reviewing notes in a high-rise office at dusk, city skyline beyond the glass"></div>
+  <div class="txt">
+    <div class="no">For Founders</div>
+    <h3>For founders and business owners</h3>
+    <p>Leading a business can put you between a decision and the people who need an answer. You might be postponing feedback to a colleague or deciding which responsibilities to hand over. Start with a situation in your business and the response you want to change.</p>
+    <a href="#" class="flink">Explore founder coaching</a>
+  </div>
+</section>
+
+<!-- FEATURE: athletes (image right) -->
+<section class="feat flip band2">
+  <div class="img"><img src="https://images.pexels.com/photos/4804020/pexels-photo-4804020.jpeg?auto=compress&cs=tinysrgb&w=1500" alt="An athlete wrapping their hands in black tape before training in a dim gym"></div>
+  <div class="txt">
+    <div class="no">For Athletes</div>
+    <h3>For adult athletes</h3>
+    <p>You may trust a skill in practice and begin to doubt it in competition. Pressure can pull your concentration toward the last mistake or what might happen next. Start with a moment when your focus or confidence changed and what you noticed.</p>
+    <a href="#" class="flink">Explore coaching for athletes</a>
+  </div>
+</section>
+
+<!-- WORK quote -->
+<section class="work">
+  <div class="wrap">
+    <p class="eyebrow">What The Work Is For</p>
+    <p class="q">Turn a broad concern into something you can <span class="it">work on.</span></p>
+    <div class="cols">
+      <p>You might call it a mental block: you keep second-guessing a decision or putting off a conversation. Start with that specific situation. What happened? What are you assuming it means? What do you need to find out before deciding?</p>
+      <p>In performance coaching, you and Victor work together on those questions. Personal growth can mean a change you choose in your own life, such as asking a question you have avoided, checking an assumption or taking an action you chose.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MEET VICTOR -->
+<section class="bio">
+  <div class="wrap">
+    <p class="eyebrow">Meet Victor</p>
+    <h2>A coach with a background in martial arts and philosophy</h2>
+    <p>Victor Pierantoni is the coach behind Liberation Coach. His background includes martial arts and the Zen and Stoic ideas he has discussed through Zen Stoic. His teaching considers attention, emotional experience and the choices people make in everyday life.</p>
+    <div class="pods">
+      <a href="http://supermamas.com/episodeblog/ep235-learning-to-stay-sane-and-zen-stoic-while-in-quarantine-with-life-coach-victor-pierantoni-of-zen-stoic-mastery">Super Mamas · ep.235 (2020)</a>
+      <a href="https://podcasts.apple.com/ie/podcast/victor-pierantoni-the-zen-stoic-on-the-similarities/id1531794099?i=1000620849756">Acta Non Verba · ep.156 (2023)</a>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD feature (image right) -->
+<section class="feat flip">
+  <div class="img"><img src="https://images.pexels.com/photos/18386434/pexels-photo-18386434.jpeg?auto=compress&cs=tinysrgb&w=1500" alt="Mist rising off the still surface of a calm lake at dawn"></div>
+  <div class="txt">
+    <div class="no">The Emotional Side Of The Work</div>
+    <h3>Reflection and emotional awareness</h3>
+    <p>Victor's emotional-awareness teaching includes noticing bodily sensations associated with a feeling. His reflective questions examine the situation and your interpretation of it. The Method page explains these parts of his work in plain language.</p>
+    <a href="#" class="btn-o">Understand Victor's approach</a>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="steps-band">
+  <div class="wrap">
+    <div class="shead" style="padding-top:0"><p class="eyebrow">How To Begin</p><h2>A conversation is the next step</h2></div>
+    <div class="steps">
+      <div class="step"><div class="sn">01</div><h3>Apply</h3><p>Describe what you would like to work on.</p></div>
+      <div class="step"><div class="sn">02</div><h3>Meet Victor on Zoom</h3><p>The next step is a discovery call with Victor to explore fit. There is no obligation to proceed with coaching.</p></div>
+      <div class="step"><div class="sn">03</div><h3>Decide whether to work together</h3><p>If you choose to begin coaching, sessions take place online and coaching members receive Circle access.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- QA -->
+<section class="qa-band">
+  <div class="wrap">
+    <div class="shead" style="padding-top:0"><p class="eyebrow">Quick Answers Before Applying</p><h2>Before you apply</h2></div>
+    <dl class="qa">
+      <div><dt>Are sessions online?</dt><dd>Yes. Coaching sessions take place online.</dd></div>
+      <div><dt>Is Circle access included?</dt><dd>Yes. All coaching members receive Circle access.</dd></div>
+      <div><dt>What happens after I apply?</dt><dd>The next step is a discovery Zoom call with Victor. There is no obligation to proceed with coaching.</dd></div>
+      <div><dt>Have more questions?</dt><dd><a href="#" class="flink">Read common questions</a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="wrap">
+    <p class="eyebrow" style="color:#f6e4da">A Final Invitation</p>
+    <h2>Bring the situation you want to <span class="it">approach differently.</span></h2>
+    <p>Explore Victor's background and how he approaches coaching, then describe what you would like to work on. Coaching is educational and does not replace medical, psychological, legal or financial advice.</p>
+    <a href="#" class="btn">Apply for 1:1 coaching</a>
+    <p class="note">Your next step is a discovery Zoom call with Victor, with no obligation to proceed with coaching.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <div class="fbrand">Liberation Coach</div>
+        <p class="fdesc">Online 1:1 performance coaching with Victor Pierantoni for founders and adult athletes.</p>
+      </div>
+      <div class="fcol"><h4>Explore</h4><a href="#">Coaching</a><a href="#">Method</a><a href="#">For Founders</a><a href="#">For Athletes</a><a href="#">About</a></div>
+      <div class="fcol"><h4>More</h4><a href="#">FAQ</a><a href="#">Contact</a><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Coaching Disclaimer</a></div>
+    </div>
+    <p class="fine">Liberation Coach Inc. offers online 1:1 performance coaching for adults aged 18 and older. Coaching is educational and does not replace medical, psychological, legal or financial advice.</p>
+  </div>
+</footer>
+
+</body>
+</html>
